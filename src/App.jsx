@@ -23,6 +23,9 @@ import AdminRisk from './pages/admin/AdminRisk';
 import ConsumerHome from './pages/consumer/ConsumerHome';
 import ConsumerScan from './pages/consumer/ConsumerScan';
 
+// Shared
+import ProfilePage from './pages/shared/ProfilePage';
+
 /* ---- Route Guards ---- */
 function RequireAuth({ children, allowedRole }) {
   const { user } = useAuth();
@@ -89,7 +92,7 @@ function AppRoutes() {
       } />
       <Route path="/inspector/profile" element={
         <RequireAuth allowedRole="inspector">
-          <AppShell><Placeholder title="Profile" /></AppShell>
+          <AppShell><ProfilePage /></AppShell>
         </RequireAuth>
       } />
 
@@ -102,6 +105,11 @@ function AppRoutes() {
       <Route path="/admin/risk" element={
         <RequireAuth allowedRole="admin">
           <AppShell><AdminRisk /></AppShell>
+        </RequireAuth>
+      } />
+      <Route path="/admin/profile" element={
+        <RequireAuth allowedRole="admin">
+          <AppShell><ProfilePage /></AppShell>
         </RequireAuth>
       } />
       <Route path="/admin/inspections" element={
@@ -132,7 +140,7 @@ function AppRoutes() {
         </RequireAuth>
       } />
       <Route path="/consumer/history" element={<RequireAuth allowedRole="consumer"><AppShell><Placeholder title="Scan History" /></AppShell></RequireAuth>} />
-      <Route path="/consumer/profile" element={<RequireAuth allowedRole="consumer"><AppShell><Placeholder title="Profile" /></AppShell></RequireAuth>} />
+      <Route path="/consumer/profile" element={<RequireAuth allowedRole="consumer"><AppShell><ProfilePage /></AppShell></RequireAuth>} />
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />
