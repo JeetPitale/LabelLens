@@ -298,7 +298,7 @@ function Step3Quality({ image, onProceed, onRetake }) {
   );
 }
 
-/* ---------- Step 4 — AI Processing ---------- */
+/* ---------- Step 4 — Processing ---------- */
 const PROCESSING_STEPS = [
   { msg: 'Reading label…', duration: 800 },
   { msg: 'Detecting mandatory declarations…', duration: 900 },
@@ -344,7 +344,7 @@ function Step4Processing({ onComplete }) {
       </div>
 
       <h2 style={{ fontSize: 'var(--text-xl)', fontWeight: 'var(--fw-bold)', color: 'var(--slate-900)', marginBottom: 8 }}>
-        {done ? 'Analysis Complete' : 'AI Analysis in Progress'}
+        {done ? 'Analysis Complete' : 'Analysis in Progress'}
       </h2>
       <p style={{ color: 'var(--slate-500)', fontSize: 'var(--text-sm)', marginBottom: 'var(--sp-8)', maxWidth: 320 }}>
         {done ? 'Compliance analysis complete. Preparing results…' : PROCESSING_STEPS[stepIdx]?.msg}
@@ -362,7 +362,7 @@ function Step4Processing({ onComplete }) {
           }} />
         </div>
         <p style={{ fontSize: 'var(--text-xs)', color: 'var(--slate-400)' }}>
-          Powered by LabelLens AI · Rules sourced from Legal Metrology (PC) Rules, 2011
+          Powered by LabelLens · Rules sourced from Legal Metrology (PC) Rules, 2011
         </p>
       </div>
 
@@ -407,7 +407,7 @@ function Step5Results({ declarations, overallStatus, confidence, onEdit, onFinal
               {overallStatus === 'compliant' ? 'COMPLIANT' : overallStatus === 'non-compliant' ? 'NON-COMPLIANT' : 'NEEDS REVIEW'}
             </p>
             <p style={{ fontSize: 'var(--text-xs)', opacity: 0.85, marginTop: 2 }}>
-              AI Confidence: {Math.round(confidence * 100)}% &nbsp;·&nbsp;
+              Confidence: {Math.round(confidence * 100)}% &nbsp;·&nbsp;
               {passed} passed · {fails} failed · {uncertain} uncertain
             </p>
           </div>
@@ -419,7 +419,7 @@ function Step5Results({ declarations, overallStatus, confidence, onEdit, onFinal
 
       <div className="alert alert-info" style={{ marginBottom: 'var(--sp-5)' }}>
         <Info size={14} style={{ flexShrink: 0, marginTop: 1 }} />
-        <span><strong>AI-Assisted, Inspector-Verified.</strong> Review each declaration below. Correct any OCR errors and verify before finalizing.</span>
+        <span><strong>Automated Analysis, Inspector-Verified.</strong> Review each declaration below. Correct any OCR errors and verify before finalizing.</span>
       </div>
 
       {/* Declaration cards */}
@@ -502,7 +502,7 @@ function DeclarationCard({ decl, onEdit }) {
               <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
                 {decl.inspectorVerified
                   ? <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-compliant)', fontWeight: 600 }}>✓ Inspector verified</span>
-                  : <span style={{ fontSize: 'var(--text-xs)', color: 'var(--slate-400)' }}>AI Confidence: {Math.round(decl.confidence * 100)}%</span>
+                  : <span style={{ fontSize: 'var(--text-xs)', color: 'var(--slate-400)' }}>Confidence: {Math.round(decl.confidence * 100)}%</span>
                 }
                 <button className="btn btn-ghost btn-sm" style={{ height: 28, padding: '0 8px' }} onClick={() => setEditMode(v => !v)} aria-label="Edit value">
                   <Edit3 size={13} /> Edit
@@ -546,7 +546,7 @@ function DeclarationCard({ decl, onEdit }) {
             )}
           </div>
 
-          {/* AI Confidence */}
+          {/* OCR Confidence */}
           {decl.confidence > 0 && (
             <div style={{ marginBottom: 'var(--sp-3)' }}>
               <p style={{ fontSize: 'var(--text-xs)', color: 'var(--slate-500)', marginBottom: 4 }}>OCR Confidence</p>

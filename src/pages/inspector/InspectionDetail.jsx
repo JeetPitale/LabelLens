@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, MapPin, Clock, User, CheckCircle, XCircle, AlertTriangle,
-  Download, Share2, FileText, ScanLine, MessageSquare, ChevronRight
+  Download, Share2, FileText, ScanLine, MessageSquare, ChevronRight, Gavel
 } from 'lucide-react';
 import { StatusBadge, ConfidenceBar } from '../../components/ui/UIComponents';
 import { PAST_INSPECTIONS } from '../../data/mockData';
@@ -187,6 +187,15 @@ export default function InspectionDetail() {
               <button className="btn btn-trust" style={{ flex: 1 }}>
                 <Download size={16} /> Download PDF Report
               </button>
+              {insp.status === 'non-compliant' && (
+                <button
+                  className="btn btn-primary"
+                  onClick={() => alert(`Case ${insp.inspectionId} escalated to Enforcement Officer queue.`)}
+                  style={{ background: 'var(--color-violation)', borderColor: 'var(--color-violation)' }}
+                >
+                  <Gavel size={16} /> Escalate to Enforcement Unit
+                </button>
+              )}
               <button className="btn btn-secondary">
                 <Share2 size={16} /> Share
               </button>

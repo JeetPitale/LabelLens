@@ -14,7 +14,8 @@ function initials(name) {
 }
 
 function roleLabel(role) {
-  if (role === 'inspector') return 'Enforcement Officer';
+  if (role === 'inspector') return 'Field Inspector';
+  if (role === 'enforcement') return 'Enforcement Officer';
   if (role === 'admin') return 'Administrator';
   if (role === 'consumer') return 'Consumer';
   return role;
@@ -22,6 +23,7 @@ function roleLabel(role) {
 
 function roleBadgeColor(role) {
   if (role === 'inspector') return { bg: 'var(--color-action-blue-light)', color: 'var(--color-action-blue)', border: '#BFDBFE' };
+  if (role === 'enforcement') return { bg: '#FEF2F2', color: '#DC2626', border: '#FECACA' };
   if (role === 'admin') return { bg: 'var(--color-warning-bg)', color: 'var(--color-warning-dark)', border: 'var(--color-warning-border)' };
   return { bg: 'var(--color-compliant-bg)', color: 'var(--color-compliant-dark)', border: 'var(--color-compliant-border)' };
 }
@@ -106,6 +108,22 @@ export default function ProfilePage() {
               { label: 'Total Inspections', value: myInspections.length, color: 'var(--color-action-blue)' },
               { label: 'Compliant',          value: compliant,             color: 'var(--color-compliant)' },
               { label: 'Violations Found',   value: violations,            color: 'var(--color-violation)' },
+            ].map(s => (
+              <div key={s.label} className="card" style={{ padding: 'var(--sp-4)', textAlign: 'center' }}>
+                <p style={{ fontSize: 'var(--text-2xl)', fontWeight: 'var(--fw-bold)', color: s.color }}>{s.value}</p>
+                <p style={{ fontSize: 'var(--text-xs)', color: 'var(--slate-500)', marginTop: 3 }}>{s.label}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Stats (Enforcement Officer only) */}
+        {user?.role === 'enforcement' && (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--sp-3)', marginBottom: 'var(--sp-5)' }}>
+            {[
+              { label: 'Notices Issued', value: 4, color: 'var(--color-violation)' },
+              { label: 'Compounded Fines', value: '₹3.45L', color: 'var(--color-compliant)' },
+              { label: 'Prosecution Cases', value: 1, color: 'var(--color-action-blue)' },
             ].map(s => (
               <div key={s.label} className="card" style={{ padding: 'var(--sp-4)', textAlign: 'center' }}>
                 <p style={{ fontSize: 'var(--text-2xl)', fontWeight: 'var(--fw-bold)', color: s.color }}>{s.value}</p>

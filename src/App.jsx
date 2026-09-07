@@ -15,6 +15,10 @@ import InspectionHistory from './pages/inspector/InspectionHistory';
 import InspectionDetail from './pages/inspector/InspectionDetail';
 import RiskIntelligence from './pages/inspector/RiskIntelligence';
 
+// Enforcement
+import EnforcementDashboard from './pages/enforcement/EnforcementDashboard';
+import EnforcementNotices from './pages/enforcement/EnforcementNotices';
+
 // Admin
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminRisk from './pages/admin/AdminRisk';
@@ -92,6 +96,33 @@ function AppRoutes() {
       } />
       <Route path="/inspector/profile" element={
         <RequireAuth allowedRole="inspector">
+          <AppShell><ProfilePage /></AppShell>
+        </RequireAuth>
+      } />
+
+      {/* Enforcement Officer routes */}
+      <Route path="/enforcement" element={
+        <RequireAuth allowedRole="enforcement">
+          <AppShell><EnforcementDashboard /></AppShell>
+        </RequireAuth>
+      } />
+      <Route path="/enforcement/notices" element={
+        <RequireAuth allowedRole="enforcement">
+          <AppShell><EnforcementNotices /></AppShell>
+        </RequireAuth>
+      } />
+      <Route path="/enforcement/risk" element={
+        <RequireAuth allowedRole="enforcement">
+          <AppShell><RiskIntelligence /></AppShell>
+        </RequireAuth>
+      } />
+      <Route path="/enforcement/cases" element={
+        <RequireAuth allowedRole="enforcement">
+          <AppShell><InspectionHistory /></AppShell>
+        </RequireAuth>
+      } />
+      <Route path="/enforcement/profile" element={
+        <RequireAuth allowedRole="enforcement">
           <AppShell><ProfilePage /></AppShell>
         </RequireAuth>
       } />

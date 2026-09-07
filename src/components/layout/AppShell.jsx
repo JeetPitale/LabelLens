@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard, ScanLine, ClipboardList, BarChart2, User,
   ShieldCheck, Settings, FileText, LogOut, AlertTriangle,
-  Users, MapPin, Zap
+  Users, MapPin, Zap, Gavel, Scale
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
@@ -13,6 +13,14 @@ const INSPECTOR_NAV = [
   { label: 'History',     path: '/inspector/history', icon: ClipboardList },
   { label: 'Risk',        path: '/inspector/risk',    icon: BarChart2 },
   { label: 'Reports',     path: '/inspector/reports', icon: FileText },
+];
+
+const ENFORCEMENT_NAV = [
+  { label: 'Dashboard',     path: '/enforcement',         icon: LayoutDashboard },
+  { label: 'Legal Notices', path: '/enforcement/notices', icon: Gavel },
+  { label: 'Risk',          path: '/enforcement/risk',    icon: BarChart2 },
+  { label: 'Inspections',   path: '/enforcement/cases',   icon: ClipboardList },
+  { label: 'Profile',       path: '/enforcement/profile', icon: User },
 ];
 
 const ADMIN_NAV = [
@@ -42,6 +50,13 @@ const INSPECTOR_BOTTOM_NAV = [
   { label: 'Profile',   path: '/inspector/profile', icon: User },
 ];
 
+const ENFORCEMENT_BOTTOM_NAV = [
+  { label: 'Dashboard', path: '/enforcement',         icon: LayoutDashboard },
+  { label: 'Notices',   path: '/enforcement/notices', icon: Gavel },
+  { label: 'Risk',      path: '/enforcement/risk',    icon: BarChart2 },
+  { label: 'Profile',   path: '/enforcement/profile', icon: User },
+];
+
 const ADMIN_BOTTOM_NAV = [
   { label: 'Dashboard',   path: '/admin',             icon: LayoutDashboard },
   { label: 'Inspections', path: '/admin/inspections', icon: ClipboardList },
@@ -51,12 +66,14 @@ const ADMIN_BOTTOM_NAV = [
 
 function getNav(role) {
   if (role === 'admin') return ADMIN_NAV;
+  if (role === 'enforcement') return ENFORCEMENT_NAV;
   if (role === 'consumer') return CONSUMER_NAV;
   return INSPECTOR_NAV;
 }
 
 function getBottomNav(role) {
   if (role === 'admin') return ADMIN_BOTTOM_NAV;
+  if (role === 'enforcement') return ENFORCEMENT_BOTTOM_NAV;
   if (role === 'consumer') return CONSUMER_NAV;
   return INSPECTOR_BOTTOM_NAV;
 }

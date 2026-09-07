@@ -4,9 +4,10 @@ import { ShieldCheck, Eye, EyeOff, AlertCircle, Wifi, WifiOff } from 'lucide-rea
 import { useAuth } from '../../context/AuthContext';
 
 const ROLES = [
-  { id: 'inspector', label: 'Enforcement Officer', desc: 'Legal Metrology Inspector' },
-  { id: 'admin',     label: 'Administrator',        desc: 'State / District HQ' },
-  { id: 'consumer',  label: 'Consumer',             desc: 'Public User' },
+  { id: 'inspector',   label: 'Field Inspector',     desc: 'Legal Metrology Inspector' },
+  { id: 'enforcement', label: 'Enforcement Officer', desc: 'Legal Notice & Prosecution' },
+  { id: 'admin',       label: 'Administrator',       desc: 'State / District HQ' },
+  { id: 'consumer',    label: 'Consumer',            desc: 'Public User' },
 ];
 
 export default function LoginPage() {
@@ -23,6 +24,7 @@ export default function LoginPage() {
     const ok = await login(role, username, password);
     if (ok) {
       if (role === 'admin') navigate('/admin');
+      else if (role === 'enforcement') navigate('/enforcement');
       else if (role === 'consumer') navigate('/consumer');
       else navigate('/inspector');
     }
@@ -40,7 +42,7 @@ export default function LoginPage() {
           </div>
           <div>
             <h1 className="login-app-name">Pack-IQ / LabelLens</h1>
-            <p className="login-app-sub">AI-Assisted Legal Metrology Compliance Platform</p>
+            <p className="login-app-sub">Legal Metrology Compliance Platform</p>
           </div>
         </div>
 

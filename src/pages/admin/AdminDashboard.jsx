@@ -53,6 +53,36 @@ export default function AdminDashboard() {
           </div>
         </div>
 
+        {/* Enforcement Division Overview */}
+        <div className="card card-padded" style={{ marginBottom: 'var(--sp-6)', borderLeft: '4px solid #312E81', background: 'linear-gradient(90deg, #F8FAFC 0%, #EEF2FF 100%)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
+            <div>
+              <p style={{ fontSize: 'var(--text-xs)', fontWeight: 700, color: '#312E81', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                Legal Metrology Enforcement Division
+              </p>
+              <h2 style={{ fontSize: 'var(--text-lg)', fontWeight: 700, color: 'var(--slate-900)', marginTop: 2 }}>
+                Legal Notices & Prosecution Overview
+              </h2>
+            </div>
+            <span className="badge" style={{ background: '#312E81', color: '#fff' }}>4 Active Notices</span>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--sp-3)', marginTop: 'var(--sp-4)' }}>
+            <div style={{ background: '#fff', padding: 'var(--sp-3)', borderRadius: 'var(--radius-md)', border: 'var(--border)' }}>
+              <span style={{ fontSize: 'var(--text-xs)', color: 'var(--slate-500)' }}>Section 36 Notices</span>
+              <p style={{ fontSize: 'var(--text-xl)', fontWeight: 700, color: 'var(--slate-900)', marginTop: 2 }}>4 Issued</p>
+            </div>
+            <div style={{ background: '#fff', padding: 'var(--sp-3)', borderRadius: 'var(--radius-md)', border: 'var(--border)' }}>
+              <span style={{ fontSize: 'var(--text-xs)', color: 'var(--slate-500)' }}>Compounding Recovered</span>
+              <p style={{ fontSize: 'var(--text-xl)', fontWeight: 700, color: 'var(--color-compliant)', marginTop: 2 }}>₹3.45 Lakhs</p>
+            </div>
+            <div style={{ background: '#fff', padding: 'var(--sp-3)', borderRadius: 'var(--radius-md)', border: 'var(--border)' }}>
+              <span style={{ fontSize: 'var(--text-xs)', color: 'var(--slate-500)' }}>Court Prosecutions</span>
+              <p style={{ fontSize: 'var(--text-xl)', fontWeight: 700, color: 'var(--color-violation)', marginTop: 2 }}>1 Filed</p>
+            </div>
+          </div>
+        </div>
+
         {/* Charts row */}
         <div className="two-col" style={{ marginBottom: 'var(--sp-6)' }}>
           {/* Inspections over time */}
