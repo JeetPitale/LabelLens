@@ -214,7 +214,7 @@ export default function ProfilePage() {
         </button>
 
         <p style={{ textAlign: 'center', fontSize: 'var(--text-xs)', color: 'var(--slate-400)', marginBottom: 'var(--sp-8)' }}>
-          Pack-IQ · LabelLens v1.0 &nbsp;·&nbsp; Department of Legal Metrology, India
+          LabelLens v1.0 &nbsp;·&nbsp; Department of Legal Metrology, India
         </p>
       </div>
 

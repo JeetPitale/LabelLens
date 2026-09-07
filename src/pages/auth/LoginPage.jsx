@@ -41,7 +41,7 @@ export default function LoginPage() {
             <ShieldCheck size={28} color="#fff" />
           </div>
           <div>
-            <h1 className="login-app-name">Pack-IQ / LabelLens</h1>
+            <h1 className="login-app-name">LabelLens</h1>
             <p className="login-app-sub">Legal Metrology Compliance Platform</p>
           </div>
         </div>
@@ -165,7 +165,7 @@ export default function LoginPage() {
         </div>
 
         <div style={{ marginTop: 'var(--sp-4)', textAlign: 'center', fontSize: 'var(--text-xs)', color: 'var(--slate-400)' }}>
-          Pack-IQ · LabelLens v1.0 &nbsp;|&nbsp; Legal Metrology (Packaged Commodities) Rules, 2011
+          LabelLens v1.0 &nbsp;|&nbsp; Legal Metrology (Packaged Commodities) Rules, 2011
         </div>
       </main>
 

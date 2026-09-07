@@ -97,8 +97,8 @@ export function Sidebar() {
             <ShieldCheck size={20} />
           </div>
           <div className="sidebar-logo-text">
-            <span className="sidebar-app-name">Pack-IQ</span>
-            <span className="sidebar-app-sub">LabelLens</span>
+            <span className="sidebar-app-name">LabelLens</span>
+            <span className="sidebar-app-sub">Legal Metrology</span>
           </div>
         </div>
       </div>
@@ -180,7 +180,7 @@ export function MobileHeader() {
         <div className="header-logo-icon">
           <ShieldCheck size={18} />
         </div>
-        <span className="header-title">Pack-IQ</span>
+        <span className="header-title">LabelLens</span>
       </div>
       <div className="header-actions">
         {/* Avatar → Profile page (which has logout) */}

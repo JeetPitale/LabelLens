@@ -1,5 +1,5 @@
 // =========================================================
-// Pack-IQ / VidhiScan — Realistic Mock / Seed Data
+// LabelLens — Realistic Mock / Seed Data
 // =========================================================
 
 export const MOCK_USER = {
